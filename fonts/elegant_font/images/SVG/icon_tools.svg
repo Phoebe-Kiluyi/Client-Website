@@ -1,0 +1,27 @@
+                         <div class="col-md-6">
+                                                        <h5>Expiration date</h5>
+                                                        <input type="date" name="bid_expiration_date" id="bid_expiration_date" class="form-control" />
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div id="tab_opt_3">
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="spacer-20"></div>
+
+                                    <div class="switch-with-title">
+                                        <h5><i class="fa fa- fa-unlock-alt id-color-2 icon_padlock"></i>Unlock once purchased</h5>
+                                        <div class="de-switch">
+                                          <input type="checkbox" id="switch-unlock" class="checkbox">
+                                          <label for="switch-unlock"></label>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                        <p class="p-info">Unlock content after successful transaction.</p>
+
+                                        <div class="hide-content">
+                                            <input type="text" name="item_unlock" id="item_unlock" class="form-control" placeholder="A

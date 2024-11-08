@@ -1,0 +1,35 @@
+<?php
+// Google reCAPTCHA API keys settings
+$siteKey 	= '6LcXb2EgAAAAAEoSJJyUaFG3_xZ9mwSeK4u40dMe';
+$secretKey 	= '6LcXb2EgAAAAAEmVJ0TkrJsq2j64ua5xx6QvgkgI';
+
+// Email settings
+$recipientEmail = 'contact@themenesia.com';
+
+
+// If the form is submitted
+$postData = $statusMsg = '';
+$status = 'error';
+if(isset($_POST['submit'])){
+	$postData = $_POST;
+	
+	// Validate form input fields
+	if(!empty($_POST['name']) && !empty($_POST['email']) && !empty($_POST['message'])){
+		
+		// Validate reCAPTCHA checkbox
+		if(isset($_POST['g-recaptcha-response']) && !empty($_POST['g-recaptcha-response'])){
+
+			// Verify the reCAPTCHA API response
+			$verifyResponse = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret='.$secretKey.'&response='.$_POST['g-recaptcha-response']);
+			
+			// Decode JSON data of API response
+			$responseData = json_decode($verifyResponse);
+			
+			// If the reCAPTCHA API response is valid
+			if($responseData->success){
+				// Retrieve value from the form input fields
+				$name = !empty($_POST['name'])?$_POST['name']:'';
+				$email = !empty($_POST['email'])?$_POST['email']:'';
+				$message = !empty($_POST['message'])?$_POST['message']:'';
+				
+				// Send email notification t
